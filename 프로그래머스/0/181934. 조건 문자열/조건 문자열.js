@@ -1,19 +1,18 @@
 function solution(ineq, eq, n, m) {
-    switch(typeClassy(ineq, eq)){
-        case 0: return n >= m ? 1 : 0
-        case 1: return n > m ? 1 : 0
-        case 2: return n <= m ? 1 : 0
-        case 3: return n < m ? 1 : 0
-    }
+    return calc(typeClassy(ineq, eq), n, m) ? 1 : 0
 }
 
 const typeClassy = (ineq, eq) => {
-    if(ineq === ">"){
-        if(eq === "=") return 0
-        return 1
-    }else{
-        if(eq === "=") return 2
-        return 3
+    const ret = ineq === ">" ? eq === "=" ? 0 : 1 : eq === "=" ? 2 : 3
+    return ret
+}
+
+const calc = (tc, n, m) => {
+    switch(tc){
+      case 0: return n >= m 
+      case 1: return n > m  
+      case 2: return n <= m 
+      case 3: return n < m        
     }
 }
 
