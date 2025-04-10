@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class Main {
 	static HashSet<String> hi;
 	static String[] logs;
-	static int cursor, result;
+	static int result;
 	
 	static void setter() throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,7 +21,7 @@ public class Main {
 		for(int i = 0; i<logs.length; i++) {
 			if(logs[i].equals("ENTER")) {
 				result += hi.size();
-				hi = new HashSet<>();
+				hi.clear();
 				continue;
 			}
 			hi.add(logs[i]);
