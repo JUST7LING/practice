@@ -16,16 +16,9 @@ class Solution {
             if(calc == target) answer++;
             return;
         }
-        
-        int result = calc;
-        
-        result += numbers[index];
-        recursive(index+1, result);
-        result -= numbers[index];
-        
-        result -= numbers[index];
-        recursive(index+1, result);
-        result += numbers[index];
+       
+        recursive(index+1, calc + numbers[index]);
+        recursive(index+1, calc - numbers[index]);
     }
         
 }
