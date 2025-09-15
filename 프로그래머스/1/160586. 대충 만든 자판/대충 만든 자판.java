@@ -1,17 +1,10 @@
 import java.util.*;
 
 class Solution {
-    static class Keys {
-        char key;
-        int index;
-        Keys(char key, int index){
-            this.key = key;
-            this.index = index;
-        }
-    }
-    public static HashMap<Character, Keys> findKey;
+    static public int[] findKey;
+
     public int[] solution(String[] keymap, String[] targets) {
-        findKey = new HashMap<>();
+        findKey = new int[91];
         setKeys(keymap); // findKey setting
         int[] answer = new int[targets.length];
         for(int i = 0; i<targets.length; i++){
@@ -24,12 +17,11 @@ class Solution {
         for(int i = 0; i<keymap.length; i++){
             for(int j = 0; j<keymap[i].length(); j++){
                 char thisChar = keymap[i].charAt(j);
-                Keys thisKey = findKey.get(thisChar);
-                if(thisKey == null) { // 아직 등록되지 않은 문자
-                    findKey.put(thisChar, new Keys(thisChar, j));
+                if(findKey[thisChar] == 0) { // 아직 등록되지 않은 문자
+                    findKey[thisChar] = j + 1;
                 } else { // 이미 등록된 문자
-                    if(thisKey.index > j) { // 새롭게 등록할 필요가 있다.
-                        findKey.put(thisChar, new Keys(thisChar, j)); // 갱신
+                    if(findKey[thisChar] > j) { // 새롭게 등록할 필요가 있다.
+                        findKey[thisChar] = j + 1; // 갱신
                     }
                 }
             }
@@ -39,12 +31,11 @@ class Solution {
     static int calc(String line){
         int result = 0;
         for(int i = 0; i<line.length(); i++){
-            Keys thisKey = findKey.get(line.charAt(i));
-            if(thisKey == null) return -1;
-            result += thisKey.index + 1;
+            char thisChar = line.charAt(i);
+            if(findKey[thisChar] == 0) return -1;
+            result += findKey[thisChar];
         }
         return result;
     }
-    
     
 }
