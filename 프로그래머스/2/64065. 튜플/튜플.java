@@ -69,7 +69,6 @@ class Solution {
         while(!queue.isEmpty()){
             Element e = queue.poll();
             int[] spitted = e.spit();
-       //     System.out.println(Arrays.toString(spitted));
             for(int i : spitted){
                 if(checker.contains(i)) continue;
                 else { // 새로운 요소를 찾아 추가
