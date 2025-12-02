@@ -1,10 +1,10 @@
 # [level 0] [PCCE 기출문제] 3번 / 수 나누기 - 340205 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/340205) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/340205#) 
 
 ### 성능 요약
 
-메모리: 72 MB, 시간: 204.04 ms
+메모리: 74 MB, 시간: 191.37 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 12월 02일 13:23:19
+2025년 12월 02일 13:27:28
 
 ### 문제 설명
 
